@@ -16,6 +16,9 @@ jobs:
             texlive \
             texlive-luatex \
             texlive-pictures \
+            texlive-fonts-extra \
             texlive-publishers \
+            fonts-inconsolata \
+            fonts-linuxlibertine \
             #
       - run: make
