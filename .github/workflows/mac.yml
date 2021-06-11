@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: snickerbockers/submodules-init@v4
+      - run: |
+          wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+          tar -xzvf install-tl-unx.tar.gz
+          ( cd install-tl-* && ( (echo "i"; echo) | sudo ./install-tl --gui=text ) )
+      - run: make
