@@ -14,4 +14,6 @@ jobs:
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
           tar -xzvf install-tl-unx.tar.gz
           ( cd install-tl-* && ( (echo "i"; echo) | sudo ./install-tl --gui=text ) )
-      - run: make
+      - run: |
+          export PATH="/usr/local/texlive/2021/bin/universal-darwin:$PATH"
+          make
